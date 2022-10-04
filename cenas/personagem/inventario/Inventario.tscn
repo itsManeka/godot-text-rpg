@@ -1,0 +1,155 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/inventario/painel_peito.png" type="Texture" id=1]
+[ext_resource path="res://cenas/personagem/inventario/Inventario.gd" type="Script" id=2]
+[ext_resource path="res://assets/inventario/painel_armas.png" type="Texture" id=3]
+[ext_resource path="res://assets/inventario/painel_elmo.png" type="Texture" id=4]
+[ext_resource path="res://assets/inventario/painel_botas.png" type="Texture" id=5]
+[ext_resource path="res://assets/inventario/painel_calcas.png" type="Texture" id=6]
+[ext_resource path="res://assets/inventario/bg_inventario.png" type="Texture" id=7]
+[ext_resource path="res://cenas/personagem/inventario/ItemMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://cenas/personagem/inventario/Slot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/inventario/painel_luvas.png" type="Texture" id=10]
+
+[sub_resource type="StyleBoxTexture" id=1]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="Inventario" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="NinePatchRect" parent="."]
+margin_right = 400.0
+margin_bottom = 120.0
+texture = ExtResource( 7 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Equipado" type="GridContainer" parent="."]
+margin_left = 10.0
+margin_top = 8.0
+margin_right = 112.0
+margin_bottom = 110.0
+custom_constants/vseparation = 3
+custom_constants/hseparation = 3
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot1" parent="Equipado" instance=ExtResource( 9 )]
+custom_styles/panel = SubResource( 1 )
+
+[node name="Capacete" parent="Equipado" instance=ExtResource( 9 )]
+margin_left = 35.0
+margin_right = 67.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Slot3" parent="Equipado" instance=ExtResource( 9 )]
+margin_left = 70.0
+margin_right = 102.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="Arma1" parent="Equipado" instance=ExtResource( 9 )]
+margin_top = 35.0
+margin_bottom = 67.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Armadura" parent="Equipado" instance=ExtResource( 9 )]
+margin_left = 35.0
+margin_top = 35.0
+margin_right = 67.0
+margin_bottom = 67.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="Arma2" parent="Equipado" instance=ExtResource( 9 )]
+margin_left = 70.0
+margin_top = 35.0
+margin_right = 102.0
+margin_bottom = 67.0
+custom_styles/panel = SubResource( 6 )
+
+[node name="Botas" parent="Equipado" instance=ExtResource( 9 )]
+margin_top = 70.0
+margin_bottom = 102.0
+custom_styles/panel = SubResource( 7 )
+
+[node name="Calcas" parent="Equipado" instance=ExtResource( 9 )]
+margin_left = 35.0
+margin_top = 70.0
+margin_right = 67.0
+margin_bottom = 102.0
+custom_styles/panel = SubResource( 8 )
+
+[node name="Luvas" parent="Equipado" instance=ExtResource( 9 )]
+margin_left = 70.0
+margin_top = 70.0
+margin_right = 102.0
+margin_bottom = 102.0
+custom_styles/panel = SubResource( 9 )
+
+[node name="Inventario" type="GridContainer" parent="."]
+margin_left = 125.0
+margin_top = 5.0
+margin_right = 385.0
+margin_bottom = 115.0
+custom_constants/vseparation = 6
+custom_constants/hseparation = 7
+columns = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemMenu" parent="." instance=ExtResource( 8 )]
+visible = false
+margin_right = 128.0
+margin_bottom = 192.0
+[connection signal="clicou_item" from="Equipado/Slot1" to="." method="_on_clicou_item"]
+[connection signal="clicou_item" from="Equipado/Capacete" to="." method="_on_clicou_item"]
+[connection signal="clicou_item" from="Equipado/Slot3" to="." method="_on_clicou_item"]
+[connection signal="clicou_item" from="Equipado/Arma1" to="." method="_on_clicou_item"]
+[connection signal="clicou_item" from="Equipado/Armadura" to="." method="_on_clicou_item"]
+[connection signal="clicou_item" from="Equipado/Arma2" to="." method="_on_clicou_item"]
+[connection signal="clicou_item" from="Equipado/Botas" to="." method="_on_clicou_item"]
+[connection signal="clicou_item" from="Equipado/Calcas" to="." method="_on_clicou_item"]
+[connection signal="clicou_item" from="Equipado/Luvas" to="." method="_on_clicou_item"]
+[connection signal="descartou" from="ItemMenu" to="." method="_on_ItemMenu_descartou"]
+[connection signal="equipou" from="ItemMenu" to="." method="_on_ItemMenu_equipou"]
+[connection signal="fechou" from="ItemMenu" to="." method="_on_ItemMenu_fechou"]
+[connection signal="removeu" from="ItemMenu" to="." method="_on_ItemMenu_removeu"]

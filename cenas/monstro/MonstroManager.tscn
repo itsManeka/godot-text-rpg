@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://cenas/monstro/MonstroManager.gd" type="Script" id=1]
+[ext_resource path="res://cenas/monstro/Monstro.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/monstros/lobisomem.png" type="Texture" id=3]
+[ext_resource path="res://assets/monstros/caboclo_dagua.png" type="Texture" id=4]
+
+[node name="MonstroManager" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Monstro" parent="." instance=ExtResource( 2 )]
+nome = "Lobisomem"
+descricao = "Um homem que se transforma em lobo em noites de lua cheia e sai em busca de vítimas para poder alimentar-se do sangue delas, ou simplesmente matá-las."
+descricao_coisa_ruim = "Você morre e vira comida de Lobisomem.
+Precisa começar o jogo novamente."
+forca = 5
+sprite = ExtResource( 3 )
+
+[node name="CabocloDagua" parent="." instance=ExtResource( 2 )]
+id = 1
+nome = "Caboclo D'água"
+descricao = "É um ser mítico, defensor dos rios,, que assombra os pescadores e navegantes, chegando até mesmo a virar e afundar embarcações."
+descricao_coisa_ruim = "Ele te leva para o fundo do rio e te afoga.
+Precisa começar o jogo novamente."
+forca = 4
+sprite = ExtResource( 4 )

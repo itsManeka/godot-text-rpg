@@ -1,0 +1,217 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fontes/alterebro-pixel-font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/parede.png" type="Texture" id=2]
+[ext_resource path="res://cenas/personagem/informacoesPersonagem.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="informacoesPersonagem" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Quadro" type="Sprite" parent="."]
+modulate = Color( 0.298039, 0.298039, 0.298039, 1 )
+position = Vector2( 400, 150 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 430, 260 )
+
+[node name="DescNome" type="Label" parent="."]
+margin_left = 200.0
+margin_top = 32.0
+margin_right = 251.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 1 )
+text = "Nome: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nome" type="LineEdit" parent="."]
+anchor_right = 20.0
+margin_left = 257.0
+margin_top = 26.0
+margin_right = 601.0
+margin_bottom = 60.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Maluco piruleta"
+max_length = 40
+context_menu_enabled = false
+clear_button_enabled = true
+shortcut_keys_enabled = false
+selecting_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescRaca" type="Label" parent="."]
+margin_left = 200.0
+margin_top = 64.0
+margin_right = 251.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 1 )
+text = "Raça: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Raca" type="Label" parent="."]
+margin_left = 248.0
+margin_top = 64.0
+margin_right = 309.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 1 )
+text = "Humano"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescClasse" type="Label" parent="."]
+margin_left = 336.0
+margin_top = 64.0
+margin_right = 397.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 1 )
+text = "Classe:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Classe" type="Label" parent="."]
+margin_left = 400.0
+margin_top = 64.0
+margin_right = 478.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 1 )
+text = "Indefinida"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescCor" type="Label" parent="."]
+margin_left = 496.0
+margin_top = 64.0
+margin_right = 546.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 1 )
+text = "Cor: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cor" type="ColorPickerButton" parent="."]
+margin_left = 568.0
+margin_top = 64.0
+margin_right = 600.0
+margin_bottom = 89.0
+edit_alpha = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescExp" type="Label" parent="."]
+margin_left = 200.0
+margin_top = 96.0
+margin_right = 250.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 1 )
+text = "Exp:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exp" type="Label" parent="."]
+margin_left = 240.0
+margin_top = 96.0
+margin_right = 306.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 1 )
+text = "000/100"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescNivel" type="Label" parent="."]
+margin_left = 320.0
+margin_top = 96.0
+margin_right = 368.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 1 )
+text = "Nivel:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nivel" type="Label" parent="."]
+margin_left = 368.0
+margin_top = 96.0
+margin_right = 400.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 1 )
+text = "10"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescMod" type="Label" parent="."]
+margin_left = 416.0
+margin_top = 96.0
+margin_right = 472.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 1 )
+text = "Modif:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mod" type="Label" parent="."]
+margin_left = 472.0
+margin_top = 96.0
+margin_right = 504.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescForca" type="Label" parent="."]
+margin_left = 512.0
+margin_top = 96.0
+margin_right = 559.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 1 )
+text = "Força:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Forca" type="Label" parent="."]
+margin_left = 568.0
+margin_top = 96.0
+margin_right = 600.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="Nome" to="." method="_on_Nome_text_changed"]
+[connection signal="color_changed" from="Cor" to="." method="_on_Cor_color_changed"]

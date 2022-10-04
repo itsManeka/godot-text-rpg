@@ -1,0 +1,360 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/bgs/floresta.png" type="Texture" id=1]
+[ext_resource path="res://assets/luz.png" type="Texture" id=2]
+[ext_resource path="res://cenas/cenarios/interface/Dialogo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://cenas/cenarios/floresta/Floresta.gd" type="Script" id=4]
+[ext_resource path="res://assets/monstros/lobisomem.png" type="Texture" id=5]
+[ext_resource path="res://cenas/cenarios/interface/PainelLuta.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Piscar"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cenario/Luz:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.117647 ), Color( 1, 1, 1, 0.0392157 ), Color( 1, 1, 1, 0.117647 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "olhos_abrindo"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.337255, 0.337255, 0.337255, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "mostra_dialogo"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Dialogo:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30, -120 ), Vector2( 30, -120 ), Vector2( 30, 10 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "AndaApagaETrocaBG"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cenario:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "troca_bg"
+}, {
+"args": [  ],
+"method": "terminou_transicao"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cenario/Luz:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cenario:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.4, 1.4 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cenario:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cenario:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "encontrou_casa"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cenario/Luz:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -1, 88 ), Vector2( -17, 41 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cenario:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Cenario/Lobisomem")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dialogo:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30, 10 ), Vector2( 30, -120 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("PainelLuta")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "inicia_batalha"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dialogo:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30, -120 ), Vector2( 30, 10 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "continua_apos_batalha"
+} ]
+}
+
+[node name="Floresta" type="Node2D"]
+modulate = Color( 0, 0, 0, 1 )
+script = ExtResource( 4 )
+dialogos_lobisomem_1 = [ "[r]Criatura desconhecida:[/r]
+Rrrrrrrrrrrrrrrr!!!!" ]
+dialogos_lobisomem_2 = [ "O seu grito atraiu um uma criatura horrenda.", "Parece ser um lobisomem e parece estar furioso.
+O que você faz?" ]
+dialogos_corrida = [ "Surgiu um barulho distânte que chamou a atenção do monstro.
+Enquanto o Lobisomem olhava rosnando em direção ao barulho você saiu correndo desesperado." ]
+dialogos_encontrou_casa = [ "A luz estava vindo de uma casa.
+A casa tem uma aparencia simples e bem cuidada. O que é estranho para uma casa no meio do nada.", "Mesmo sendo estranho você precisa de um abrigo.
+O que você faz?" ]
+dialogos_bateu_porta = [ "Você bate sem parar na porta olhando constantemente para os lados.", "[b]Voz dentro da casa:[/b]
+Carma, carma! Já tô indo. Minhas perna já num funciona mais como antigamente.", "Um senhor abre uma fresta da porta e vê você com palido e aterrorizado.", "[b]Dono da casa:[/b]
+Hora meu rapaz, o que ocê ta fazendo no meio desse matagal a essa hora da noite?", "[b]Dono da casa:[/b]
+Entre entre! há muitos perigos nessas paragens. Não é bom dar sorte pro azar né mesmo?" ]
+dialogos_conversa_com_velho = [ "[b]Dono da casa:[/b]
+Ocê num tá com frio assim sem nenhum agasalho meu filho?", "[b]Dono da casa:[/b]
+Vá se trocar vá, tenho umas roupas velhas ali naquele baú. Depois ocê pode comer algo e descansar.", "[b]Dono da casa:[/b]
+Durma aqui essa noite, eu posso colocar uns pano no chão. Num é muito, mas é melhor que vagar por ai.", "[b]Dono da casa:[/b]
+Ah, e num se esqueça que é falta de educação não se apresentar pro seu anfitrião.", "Item [g]Calça velha[/g] adicionado no inventário.
+Item [g]Camisa velha[/g] adicionado no inventário.
+Item [g]Chinelos velhos[/g] adicionado no inventário." ]
+dialogo_apos_se_trocar = [ "[b]Dono da casa:[/b]
+[/p]...
+Esse nome num me é estranho...", "[b]Dono da casa:[/b]
+Então essa é única coisa que ocê consegue se lembrar. Bom, deve ser seu nome então...", "[b]Dono da casa:[/b]
+Olha meu rapaz, não há muita coisa que ocê pode fazer aqui nesse fim de mundo. Eu te aconselho a ocê ir até a vila.", "[b]Dono da casa:[/b]
+É só seguir a trilha que sai do quintar atrás da casa. Num tem erro.
+Mais ou menos uma hora de viaje e ocê chega lá.", "[b]Dono da casa:[/b]
+Agora vá dormir meu filho. Ta na cara que ocê precisa de descanso." ]
+dialogo_acordou = [ "Amanhece o dia. Você acorda e nota algo de estranho na casa.
+Parece que ela envelheceu anos.", "Você nota telhas de aranha e moveis devastados pelo tempo.
+Será que dormiu por anos? Ou aquilo tudo era um delírio?", "Você toca o seu rosto e percebe que não há vestígios de barba, então entende que não pode ter dormido por mais de um dia...", "Bom, pelo menos você está bem melhor e descansado.
+O que você faz agora?" ]
+dialogo_invadiu = [ "A casa está caindo aos pedaços. Parece que ninguém vive nela a anos.", "Algo na casa te deixa inquieto. Como se algo não quisesse você ali.", "A casa servirá de abrigo até amanhecer, mas você acaba percebendo que será impossível conseguir dormir." ]
+dialogo_caboclo_1 = [ "Enquanto você bebe agua você nota uma cilhueta estranha. Não parece ser a sua.", "A água começa a borbulhar e você nota algo vindo pra cima.", "Você tenta se afastar, mas algo pula da água e agarra seu pé.", "Você olha o monstro aterrorizado.
+É um Caboclo D'água. Você já ouviu falar dele antes.
+O que você faz?" ]
+dialogo_caboclo_2 = [ "Você está seguindo seu caminho, mas nota uma movimentação estranha no riacho.", "Você se vira e algo pula da água em sua direção.", "Você olha o monstro aterrorizado.
+É um Caboclo D'água. Você já ouviu falar dele antes.
+O que você faz?" ]
+
+[node name="AnimacaoLuz" type="AnimationPlayer" parent="."]
+autoplay = "Piscar"
+anims/Piscar = SubResource( 1 )
+
+[node name="Cenario" type="Node2D" parent="."]
+position = Vector2( 321, 180 )
+
+[node name="BG" type="Sprite" parent="Cenario"]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+position = Vector2( -321, -180 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Luz" type="Sprite" parent="Cenario"]
+visible = false
+modulate = Color( 1, 1, 1, 0.117647 )
+position = Vector2( -1, 88 )
+scale = Vector2( 1.6, 1.6 )
+texture = ExtResource( 2 )
+
+[node name="Lobisomem" type="Sprite" parent="Cenario"]
+visible = false
+position = Vector2( 8, 97 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="Dialogo" parent="." instance=ExtResource( 3 )]
+margin_top = -120.0
+margin_bottom = 0.0
+autoplay = false
+dialogos = [ "Você acordou no meio de uma floresta com a cabeça doendo.", "Você não se lembra de quem é e nem de onde está. Apenas um nome ecoa na sua cabeça.", "Você caminha um pouco enquanto está meio atordoado.
+A floresta é silenciosa, porém é possível ouvir alguns barulhos de mato e de galhos.", "Você acha que podem ser só animais noturnos, mas mesmo assim sente muito medo.", "Você nota uma luz distânte. Talvez possa ser um abrigo. O que você faz?" ]
+botoes_de_acao = [ "Segue em frente", "Grita por socorro" ]
+
+[node name="AnimacaoInicial" type="AnimationPlayer" parent="."]
+autoplay = "olhos_abrindo"
+anims/olhos_abrindo = SubResource( 2 )
+
+[node name="AnimacaoTransicao" type="AnimationPlayer" parent="."]
+anims/AndaApagaETrocaBG = SubResource( 3 )
+anims/Andar = SubResource( 4 )
+anims/ApagaETrocaBG = SubResource( 3 )
+anims/ApareceuLobsomem = SubResource( 5 )
+anims/PlayBatalhaMonstro = SubResource( 6 )
+anims/PosBatalha = SubResource( 7 )
+
+[node name="PainelLuta" parent="." instance=ExtResource( 6 )]
+visible = false
+[connection signal="clicou_botao" from="Dialogo" to="." method="_on_Dialogo_clicou_botao"]
+[connection signal="finalizou" from="Dialogo" to="." method="_on_Dialogo_finalizou"]
+[connection signal="resetou" from="Dialogo" to="." method="_on_Dialogo_resetou"]
+[connection signal="terminou_batalha" from="PainelLuta" to="." method="_on_PainelLuta_terminou_batalha"]

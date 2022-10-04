@@ -1,0 +1,81 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://cenas/personagem/inventario/ItemManager.gd" type="Script" id=1]
+[ext_resource path="res://cenas/personagem/inventario/Item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/itens/capacetes/chapeu_russo.png" type="Texture" id=3]
+[ext_resource path="res://assets/itens/capacetes/chapeu_russo_icone.png" type="Texture" id=4]
+[ext_resource path="res://assets/itens/calcas/calca_uniforme_icone.png" type="Texture" id=5]
+[ext_resource path="res://assets/itens/calcas/calca_uniforme.png" type="Texture" id=6]
+[ext_resource path="res://assets/itens/capacetes/bone_mst.png" type="Texture" id=7]
+[ext_resource path="res://assets/itens/capacetes/bone_mst_icone.png" type="Texture" id=8]
+[ext_resource path="res://assets/itens/armadura/camisa_velha_icone.png" type="Texture" id=9]
+[ext_resource path="res://assets/itens/calcas/calca_velha_icone.png" type="Texture" id=10]
+[ext_resource path="res://assets/itens/calcas/calca_velha.png" type="Texture" id=11]
+[ext_resource path="res://assets/itens/armadura/camisa_velha.png" type="Texture" id=12]
+[ext_resource path="res://assets/itens/botas/chinelos_velhos_icone.png" type="Texture" id=13]
+[ext_resource path="res://assets/itens/botas/chinelos_velhos.png" type="Texture" id=14]
+[ext_resource path="res://assets/itens/armas/facao_icone.png" type="Texture" id=15]
+[ext_resource path="res://assets/itens/armas/humano.png" type="Texture" id=16]
+
+[node name="ItemManager" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CalcaUniforme" parent="." instance=ExtResource( 2 )]
+id = 1
+tipo_item = 2
+nome = "Calça de uniforme"
+descricao = "Uma calça simples de uniforme."
+forca = 1
+item_icon = ExtResource( 5 )
+item_sprite = ExtResource( 6 )
+
+[node name="ChapeuSovietico" parent="." instance=ExtResource( 2 )]
+nome = "Chapéu Soviético"
+descricao = "Um chapéu badass com o simbolo da foice e o martelo representando a União Soviética."
+forca = 2
+item_icon = ExtResource( 4 )
+item_sprite = ExtResource( 3 )
+
+[node name="BoneMST" parent="." instance=ExtResource( 2 )]
+id = 2
+nome = "Boné do MST"
+descricao = "Bone do Movimento dos Trabalhadores Rurais Sem Terra."
+forca = 1
+item_icon = ExtResource( 8 )
+item_sprite = ExtResource( 7 )
+
+[node name="CalcaVelha" parent="." instance=ExtResource( 2 )]
+id = 4
+tipo_item = 2
+nome = "Calça Velha"
+descricao = "Uma calça que aparenta ter mais anos de idade que você."
+forca = 1
+item_icon = ExtResource( 10 )
+item_sprite = ExtResource( 11 )
+
+[node name="CamisaVelha" parent="." instance=ExtResource( 2 )]
+id = 3
+tipo_item = 1
+nome = "Camisa Velha"
+descricao = "Uma camisa que parece ser muito velha. No seu bolso é possivel encontrar um pouco de fumo misturado com poeira."
+forca = 1
+item_icon = ExtResource( 9 )
+item_sprite = ExtResource( 12 )
+
+[node name="ChinelosVelhos" parent="." instance=ExtResource( 2 )]
+id = 5
+tipo_item = 3
+nome = "Chinelos Velhos"
+descricao = "Ao dar alguns passos é possível ouvir o barulho do preguinho batendo no chão."
+forca = 1
+item_icon = ExtResource( 13 )
+item_sprite = ExtResource( 14 )
+
+[node name="FacaoEnferrujado" parent="." instance=ExtResource( 2 )]
+id = 6
+tipo_item = 4
+nome = "Facao Enferrujado"
+descricao = "Se você encostar no cabo pode se machucar com uma farpa. Se encostar na lamina pode pegar tetâno. Ou seja, tão perigoso pra você quanto pro adversário."
+forca = 2
+item_icon = ExtResource( 15 )
+item_sprite = ExtResource( 16 )

@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/parede.png" type="Texture" id=1]
+[ext_resource path="res://cenas/personagem/informacoesPersonagem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://cenas/personagem/Personagem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/chao_sala.png" type="Texture" id=4]
+[ext_resource path="res://cenas/personagem/ConfigPersonagem.gd" type="Script" id=5]
+[ext_resource path="res://cenas/personagem/inventario/Inventario.tscn" type="PackedScene" id=6]
+[ext_resource path="res://cenas/personagem/inventario/SelecaoGuia.tscn" type="PackedScene" id=7]
+[ext_resource path="res://cenas/personagem/inventario/MonitorStatus.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/fontes/alterebro-pixel-font.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[node name="ConfigPersonagem" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 320, 180 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 640, 360 )
+
+[node name="Chao" type="Sprite" parent="."]
+position = Vector2( 320, 328 )
+texture = ExtResource( 4 )
+
+[node name="Personagem" parent="." instance=ExtResource( 3 )]
+position = Vector2( 102, 200 )
+scale = Vector2( 2.2, 2.2 )
+
+[node name="informacoesPersonagem" parent="." instance=ExtResource( 2 )]
+
+[node name="SelecaoGuia" parent="." instance=ExtResource( 7 )]
+margin_left = 204.0
+margin_top = 127.0
+margin_right = 344.0
+margin_bottom = 152.0
+
+[node name="Inventario" parent="." instance=ExtResource( 6 )]
+margin_left = 200.0
+margin_top = 150.0
+margin_right = 200.0
+margin_bottom = 150.0
+
+[node name="MonitorStatus" parent="." instance=ExtResource( 8 )]
+visible = false
+margin_left = 200.0
+margin_top = 150.0
+margin_right = 200.0
+margin_bottom = 150.0
+
+[node name="Voltar" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 85.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 1 )
+text = "Voltar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mudou_cor" from="informacoesPersonagem" to="." method="_on_informacoesPersonagem_mudou_cor"]
+[connection signal="selecionou_inventario" from="SelecaoGuia" to="." method="_on_SelecaoGuia_selecionou_inventario"]
+[connection signal="selecionou_status" from="SelecaoGuia" to="." method="_on_SelecaoGuia_selecionou_status"]
+[connection signal="equipou_item" from="Inventario" to="." method="_on_Inventario_equipou_item"]
+[connection signal="removeu_item" from="Inventario" to="." method="_on_Inventario_removeu_item"]
+[connection signal="button_down" from="Voltar" to="." method="_on_Voltar_button_down"]

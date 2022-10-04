@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/parede.png" type="Texture" id=1]
+[ext_resource path="res://cenas/dungeon/Porta.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/chao_sala.png" type="Texture" id=3]
+
+[node name="Sala" type="Node2D"]
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 320, 180 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 640, 360 )
+
+[node name="Chao" type="Sprite" parent="."]
+position = Vector2( 320, 328 )
+texture = ExtResource( 3 )
+
+[node name="Portas" type="Node2D" parent="."]
+position = Vector2( 0, -16 )
+
+[node name="Porta1" parent="Portas" instance=ExtResource( 2 )]
+position = Vector2( 144, 256 )
+scale = Vector2( 1.2, 1.2 )
+
+[node name="Porta2" parent="Portas" instance=ExtResource( 2 )]
+position = Vector2( 320, 256 )
+scale = Vector2( 1.2, 1.2 )
+
+[node name="Porta3" parent="Portas" instance=ExtResource( 2 )]
+position = Vector2( 488, 256 )
+scale = Vector2( 1.2, 1.2 )

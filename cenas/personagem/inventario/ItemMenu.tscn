@@ -1,0 +1,160 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fontes/alterebro-pixel-font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://cenas/personagem/inventario/ItemMenu.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.294778, 0.293732, 0.300781, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.121569, 0.105882, 0.105882, 1 )
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+outline_size = 2
+outline_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 0.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.392157, 0.392157, 0.392157, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 20
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 1
+outline_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+font_data = ExtResource( 1 )
+
+[node name="ItemMenu" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -512.0
+margin_bottom = -168.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 124.0
+margin_bottom = 188.0
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nome" type="Label" parent="VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 2 )
+text = "Nome teste"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 32.0
+margin_right = 120.0
+margin_bottom = 45.0
+
+[node name="DescTipo" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 3 )
+text = "Tipo:"
+
+[node name="Tipo" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 24.0
+margin_right = 54.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.0705882, 0.447059, 0.745098, 1 )
+text = "cabeça"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 53.0
+margin_right = 120.0
+margin_bottom = 66.0
+
+[node name="DescForca" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 26.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 3 )
+text = "Força:"
+
+[node name="Forca" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 30.0
+margin_right = 35.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.231373, 0.411765, 0.0823529, 1 )
+text = "5"
+
+[node name="Descricao" type="Label" parent="VBoxContainer"]
+margin_top = 74.0
+margin_right = 120.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 120, 82 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
+text = "Um item modafoca com uma descricao legal sei la qualquer coisa maneira um descricao aqui e mais umas linhas tals"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 164.0
+margin_right = 120.0
+margin_bottom = 183.0
+custom_constants/separation = 15
+alignment = 1
+
+[node name="Equipar" type="Button" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 22.0
+margin_right = 65.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+text = "Equipar"
+
+[node name="Descartar" type="Button" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 80.0
+margin_right = 97.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.752941, 0, 0, 1 )
+text = "X"
+[connection signal="button_down" from="VBoxContainer/HBoxContainer3/Equipar" to="." method="_on_Equipar_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer3/Descartar" to="." method="_on_Descartar_button_down"]

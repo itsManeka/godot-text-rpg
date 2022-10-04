@@ -1,0 +1,155 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/inventario/bg_inventario.png" type="Texture" id=1]
+[ext_resource path="res://cenas/personagem/inventario/MonitorStatus.gd" type="Script" id=2]
+[ext_resource path="res://assets/fontes/alterebro-pixel-font.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 6.0
+content_margin_right = 6.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.211765, 0.192157, 0.192157, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 0.0
+content_margin_bottom = 3.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.235294, 0.215686, 0.215686, 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="MonitorStatus" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -640.0
+margin_bottom = -360.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_right = 400.0
+margin_bottom = 120.0
+texture = ExtResource( 1 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 390.0
+margin_bottom = 114.0
+rect_min_size = Vector2( 390, 110 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="HBoxContainer"]
+margin_right = 140.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 140, 0 )
+focus_mode = 0
+custom_styles/bg = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.721569, 0.721569, 0.721569, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 144.0
+margin_right = 389.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 240, 0 )
+
+[node name="ContainerNome" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_right = 245.0
+margin_bottom = 17.0
+
+[node name="Desc" type="Label" parent="HBoxContainer/VBoxContainer/ContainerNome"]
+margin_right = 32.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 3 )
+text = "Nome: "
+
+[node name="Nome" type="Label" parent="HBoxContainer/VBoxContainer/ContainerNome"]
+margin_left = 36.0
+margin_right = 36.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 3 )
+
+[node name="ContainerTipo" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 21.0
+margin_right = 245.0
+margin_bottom = 38.0
+
+[node name="Desc" type="Label" parent="HBoxContainer/VBoxContainer/ContainerTipo"]
+margin_right = 27.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 3 )
+text = "Tipo: "
+
+[node name="Tipo" type="Label" parent="HBoxContainer/VBoxContainer/ContainerTipo"]
+margin_left = 31.0
+margin_right = 31.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 3 )
+
+[node name="Descricao" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 245.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 245, 45 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
+
+[node name="ContainerOrig" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 91.0
+margin_right = 245.0
+margin_bottom = 108.0
+
+[node name="Desc" type="Label" parent="HBoxContainer/VBoxContainer/ContainerOrig"]
+margin_right = 39.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 3 )
+text = "Origem: "
+
+[node name="Origem" type="Label" parent="HBoxContainer/VBoxContainer/ContainerOrig"]
+margin_left = 43.0
+margin_right = 43.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 3 )
+[connection signal="item_selected" from="HBoxContainer/ItemList" to="." method="_on_ItemList_item_selected"]

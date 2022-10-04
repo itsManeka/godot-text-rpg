@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://cenas/personagem/inventario/StatusManager.gd" type="Script" id=1]
+[ext_resource path="res://cenas/personagem/inventario/Status.tscn" type="PackedScene" id=2]
+
+[node name="StatusManager" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Atordoado" parent="." instance=ExtResource( 2 )]
+tipo = 2
+nome = "Atordoado"
+descricao = "Você se encontra atordoado.
+Recebe -1 em força e -1 em chances de fugir.
+Descanse ou durma para resolver."
+modificador_forca = -1
+modificador_fugir = -1
+resolve_dormindo = true
+
+[node name="Cansado" parent="." instance=ExtResource( 2 )]
+id = 1
+tipo = 2
+nome = "Cansado"
+descricao = "Você está muito cansado.
+Recebe -1 em força e -1 em chances de fugir.
+Descanse ou durma para resolver."
+modificador_forca = -1
+modificador_fugir = -1
+resolve_dormindo = true

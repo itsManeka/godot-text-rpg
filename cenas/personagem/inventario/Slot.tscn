@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://cenas/personagem/inventario/Slot.gd" type="Script" id=1]
+[ext_resource path="res://assets/inventario/painel.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxTexture" id=1]
+resource_local_to_scene = true
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="Slot" type="Panel"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IconeItem" type="TextureRect" parent="."]
+margin_left = -2.38418e-07
+margin_top = -2.38418e-07
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 16, 16 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+scale = Vector2( 1.6, 1.6 )
+shape = SubResource( 2 )
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
